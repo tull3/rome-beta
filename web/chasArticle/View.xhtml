@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewChasArticleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewChasArticleLabel_idarticle}"/>
+                    <h:outputText value="#{chasArticleController.selected.idarticle}" title="#{bundle.ViewChasArticleTitle_idarticle}"/>
+                    <h:outputText value="#{bundle.ViewChasArticleLabel_articleTitle}"/>
+                    <h:outputText value="#{chasArticleController.selected.articleTitle}" title="#{bundle.ViewChasArticleTitle_articleTitle}"/>
+                    <h:outputText value="#{bundle.ViewChasArticleLabel_articleText1}"/>
+                    <h:outputText value="#{chasArticleController.selected.articleText1}" title="#{bundle.ViewChasArticleTitle_articleText1}"/>
+                    <h:outputText value="#{bundle.ViewChasArticleLabel_articleText2}"/>
+                    <h:outputText value="#{chasArticleController.selected.articleText2}" title="#{bundle.ViewChasArticleTitle_articleText2}"/>
+                    <h:outputText value="#{bundle.ViewChasArticleLabel_articleText3}"/>
+                    <h:outputText value="#{chasArticleController.selected.articleText3}" title="#{bundle.ViewChasArticleTitle_articleText3}"/>
+                    <h:outputText value="#{bundle.ViewChasArticleLabel_quoteText}"/>
+                    <h:outputText value="#{chasArticleController.selected.quoteText}" title="#{bundle.ViewChasArticleTitle_quoteText}"/>
+                    <h:outputText value="#{bundle.ViewChasArticleLabel_quoteSource}"/>
+                    <h:outputText value="#{chasArticleController.selected.quoteSource}" title="#{bundle.ViewChasArticleTitle_quoteSource}"/>
+                    <h:outputText value="#{bundle.ViewChasArticleLabel_articleDate}"/>
+                    <h:outputText value="#{chasArticleController.selected.articleDate}" title="#{bundle.ViewChasArticleTitle_articleDate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewChasArticleLabel_lastUpdate}"/>
+                    <h:outputText value="#{chasArticleController.selected.lastUpdate}" title="#{bundle.ViewChasArticleTitle_lastUpdate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewChasArticleLabel_authorIdauthor}"/>
+                    <h:outputText value="#{chasArticleController.selected.authorIdauthor}" title="#{bundle.ViewChasArticleTitle_authorIdauthor}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{chasArticleController.destroyAndView}" value="#{bundle.ViewChasArticleDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewChasArticleEditLink}"/>
+                <br />
+                <h:commandLink action="#{chasArticleController.prepareCreate}" value="#{bundle.ViewChasArticleCreateLink}" />
+                <br />
+                <h:commandLink action="#{chasArticleController.prepareList}" value="#{bundle.ViewChasArticleShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewChasArticleIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

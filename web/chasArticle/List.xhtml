@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListChasArticleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListChasArticleEmpty}" rendered="#{chasArticleController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{chasArticleController.items.rowCount > 0}">
+                    <h:outputText value="#{chasArticleController.pagination.pageFirstItem + 1}..#{chasArticleController.pagination.pageLastItem + 1}/#{chasArticleController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{chasArticleController.previous}" value="#{bundle.Previous} #{chasArticleController.pagination.pageSize}" rendered="#{chasArticleController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{chasArticleController.next}" value="#{bundle.Next} #{chasArticleController.pagination.pageSize}" rendered="#{chasArticleController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{chasArticleController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListChasArticleTitle_idarticle}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idarticle}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListChasArticleTitle_articleTitle}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.articleTitle}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListChasArticleTitle_articleText1}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.articleText1}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListChasArticleTitle_articleText2}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.articleText2}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListChasArticleTitle_articleText3}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.articleText3}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListChasArticleTitle_quoteText}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.quoteText}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListChasArticleTitle_quoteSource}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.quoteSource}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListChasArticleTitle_articleDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.articleDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListChasArticleTitle_lastUpdate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.lastUpdate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListChasArticleTitle_authorIdauthor}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.authorIdauthor}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{chasArticleController.prepareView}" value="#{bundle.ListChasArticleViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{chasArticleController.prepareEdit}" value="#{bundle.ListChasArticleEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{chasArticleController.destroy}" value="#{bundle.ListChasArticleDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{chasArticleController.prepareCreate}" value="#{bundle.ListChasArticleCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListChasArticleIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
