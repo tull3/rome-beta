@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/will/Java/Projects/Rome-beta/src/java/digital/tull/project/faces/util/JsfUtil.java</file>
+            <file>file:/home/will/Java/Projects/Rome-beta/web/chasArticle/View.xhtml</file>
+            <file>file:/home/will/Java/Projects/Rome-beta/src/java/digital/tull/project/faces/util/PaginationHelper.java</file>
+            <file>file:/home/will/Java/Projects/Rome-beta/src/java/digital/tull/project/faces/ChasArticleController.java</file>
+            <file>file:/home/will/Java/Projects/Rome-beta/web/template.xhtml</file>
+            <file>file:/home/will/Java/Projects/Rome-beta/src/java/digital/tull/project/session/ChasArticleFacade.java</file>
+            <file>file:/home/will/Java/Projects/Rome-beta/web/chasArticle/Create.xhtml</file>
+            <file>file:/home/will/Java/Projects/Rome-beta/web/WEB-INF/web.xml</file>
+            <file>file:/home/will/Java/Projects/Rome-beta/src/java/digital/tull/project/faces/ChasAuthorController.java</file>
+            <file>file:/home/will/Java/Projects/Rome-beta/web/chasArticle/List.xhtml</file>
+            <file>file:/home/will/Java/Projects/Rome-beta/web/chasArticle/Edit.xhtml</file>
+            <file>file:/home/will/Java/Projects/Rome-beta/src/java/digital/tull/project/entity/ChasArticle.java</file>
+        </group>
+    </open-files>
+</project-private>

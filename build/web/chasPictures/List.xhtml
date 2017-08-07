@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListChasPicturesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListChasPicturesEmpty}" rendered="#{chasPicturesController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{chasPicturesController.items.rowCount > 0}">
+                    <h:outputText value="#{chasPicturesController.pagination.pageFirstItem + 1}..#{chasPicturesController.pagination.pageLastItem + 1}/#{chasPicturesController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{chasPicturesController.previous}" value="#{bundle.Previous} #{chasPicturesController.pagination.pageSize}" rendered="#{chasPicturesController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{chasPicturesController.next}" value="#{bundle.Next} #{chasPicturesController.pagination.pageSize}" rendered="#{chasPicturesController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{chasPicturesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListChasPicturesTitle_idchasPictures}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idchasPictures}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListChasPicturesTitle_pictureName}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pictureName}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListChasPicturesTitle_pictureDescription}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pictureDescription}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListChasPicturesTitle_chasArticleIdarticle}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.chasArticleIdarticle}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{chasPicturesController.prepareView}" value="#{bundle.ListChasPicturesViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{chasPicturesController.prepareEdit}" value="#{bundle.ListChasPicturesEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{chasPicturesController.destroy}" value="#{bundle.ListChasPicturesDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{chasPicturesController.prepareCreate}" value="#{bundle.ListChasPicturesCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListChasPicturesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

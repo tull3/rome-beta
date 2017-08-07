@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewChasArticleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <header class="sticky row">
+            <div class="col-sm col-md-10 col-md-offset-1">
+                <div class="row">
+                <a class="logo" style="float:left; font-family:courier-new, serif;">
+                    TULL
+                </a>
+                <a href="#" role="button">Home</a>
+                <a href="#" role="button">About</a>
+                <a href="#" role="button">Contact</a>
+                </div>
+                <div class="row">
+                <h5 style="">
+                    Build it better.
+                </h5>
+                </div>
+            </div>
+            </header>
+            <br />
+            <div class="container">
+                <div class="row cols-sm-12 cols-md-10">
+                    <div class="col-md-offset-1">
+                    <br />
+                    <h2>#{chasArticleController.selected.articleTitle}</h2>
+                    <h4>#{chasArticleController.selected.authorIdauthor.name}</h4>
+                    <p>&emsp;#{chasArticleController.selected.articleText1}</p>
+                    <div class="row">
+                    <c:forEach items="#{chasArticleController.selected.chasPicturesCollection}" var="pics">
+                    <div class="col-lg-offset-1 row" style="-webkit-justify-content: space-around; justify-content: space-around;">
+                        <div class="card">
+                            <a href="img/#{pics.pictureName}">
+                                <img src="img/#{pics.pictureName}" class="section media"/>
+                            </a>
+                            <p class="section double-padded">
+
+                            #{pics.pictureDescription}
+
+                            </p>
+                  
+                        </div>
+                    </div>
+                    </c:forEach>
+                    </div>
+                    <p>&emsp;#{chasArticleController.selected.articleText2}</p>
+
+                    <p>&emsp;#{chasArticleController.selected.articleText3}</p>
+                    <br />
+                    </div>
+                    <div class="col-md-offset-1">
+                    <hr/>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <div class="col-sm col-md-10 col-md-offset-1">
+                    <p>Copyright &copy; William Jackson 2017 | Built using <a href="https://chalarangelo.github.io/mini.css/">mini.css</a> and <a href="https://github.com/tull3/rome-beta">Rome</a>.
+                    </p>
+                </div>
+            </footer>
+        </ui:define>
+    </ui:composition>
+
+</html>
