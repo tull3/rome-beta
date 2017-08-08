@@ -80,7 +80,7 @@ public class ChasArticleController implements Serializable
     {
         current = (ChasArticle) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
-        return "View";
+        return "chasArticle/View";
     }
 
     public String prepareCreate()
