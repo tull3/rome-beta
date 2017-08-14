@@ -15,6 +15,6 @@
     <property name="PortNumber" value="1527"/>
     <property name="DatabaseName" value="tullprojectderby"/>
     <property name="User" value="will"/>
-    <property name="Password" value="app"/>
+    <property name="Password" value="364462"/>
   </jdbc-connection-pool>
 </resources>
