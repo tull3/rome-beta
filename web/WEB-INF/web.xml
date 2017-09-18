@@ -33,7 +33,8 @@
             <url-pattern>/faces/admin/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
-            <role-name>user</role-name>
+            <role-name>admin</role-name>
+            <role-name>writer</role-name>
             <role-name>guest</role-name>
         </auth-constraint>
     </security-constraint>
@@ -52,5 +53,9 @@
     <security-role>
         <description/>
         <role-name>guest</role-name>
+    </security-role>
+    <security-role>
+        <description/>
+        <role-name>writer</role-name>
     </security-role>
 </web-app>
